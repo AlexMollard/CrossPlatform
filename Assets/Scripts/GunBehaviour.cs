@@ -11,8 +11,9 @@ public class GunBehaviour : MonoBehaviour
 	public Rigidbody[] BulletRB;
 	GameObject BulletSpawnPoint;
 	int CurrentBulletIndex = -1;
-	public float BulletSpeed = 5.0f;
+	public float BulletSpeed = 50.0f;
 	LineRenderer AimLine;
+    public GameObject LineOBJPos;
 
 
 	bool IsVR = false;
@@ -39,8 +40,8 @@ public class GunBehaviour : MonoBehaviour
 			BulletPool[i].SetActive(false);
 		}
 		
-		AimLine.SetPosition(0, BulletSpawnPoint.transform.position);
-		AimLine.SetPosition(1, new Vector3(BulletSpawnPoint.transform.position.x, BulletSpawnPoint.transform.position.y, BulletSpawnPoint.transform.position.z + 100));
+		AimLine.SetPosition(0, new Vector3(LineOBJPos.transform.position.x, LineOBJPos.transform.position.y + 0.04f, LineOBJPos.transform.position.z));
+		AimLine.SetPosition(1, new Vector3(LineOBJPos.transform.position.x, LineOBJPos.transform.position.y, LineOBJPos.transform.position.z + 100));
 
 	}
 	private void Update()
@@ -71,7 +72,9 @@ public class GunBehaviour : MonoBehaviour
 
 			}
 		}
-	}
+        AimLine.SetPosition(0, new Vector3(LineOBJPos.transform.position.x, LineOBJPos.transform.position.y + 0.040f, LineOBJPos.transform.position.z));
+        AimLine.SetPosition(1, LineOBJPos.transform.forward * 100.0f);
+    }
 
 	public GameObject GetBullet()
 	{

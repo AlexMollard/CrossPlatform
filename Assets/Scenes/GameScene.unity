@@ -690,5 +690,20 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4571438800299562109, guid: 90d3496ccc4a3e340b9e129e258a0ba7,
+        type: 3}
+      propertyPath: BulletSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4571438800299562109, guid: 90d3496ccc4a3e340b9e129e258a0ba7,
+        type: 3}
+      propertyPath: LineOBJPos
+      value: 
+      objectReference: {fileID: 791325340}
+    - target: {fileID: 4571438799688105524, guid: 90d3496ccc4a3e340b9e129e258a0ba7,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90d3496ccc4a3e340b9e129e258a0ba7, type: 3}
