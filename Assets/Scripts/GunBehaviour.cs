@@ -39,9 +39,17 @@ public class GunBehaviour : MonoBehaviour
 			BulletRB[i] = BulletPool[i].GetComponent<Rigidbody>();
 			BulletPool[i].SetActive(false);
 		}
-		
-		AimLine.SetPosition(0, new Vector3(LineOBJPos.transform.position.x, LineOBJPos.transform.position.y + 0.04f, LineOBJPos.transform.position.z));
-		AimLine.SetPosition(1, new Vector3(LineOBJPos.transform.position.x, LineOBJPos.transform.position.y, LineOBJPos.transform.position.z + 100));
+
+        if (IsVR)
+        {
+		    AimLine.SetPosition(0, new Vector3(LineOBJPos.transform.position.x, LineOBJPos.transform.position.y + 0.04f, LineOBJPos.transform.position.z));
+		    AimLine.SetPosition(1, new Vector3(LineOBJPos.transform.position.x, LineOBJPos.transform.position.y, LineOBJPos.transform.position.z + 100));
+        }
+        else
+        {
+            AimLine.SetPosition(0, new Vector3(0, 0, 0));
+            AimLine.SetPosition(1, new Vector3(0, 0, 0));
+        }
 
 	}
 	private void Update()
@@ -56,6 +64,8 @@ public class GunBehaviour : MonoBehaviour
 				CurrentBullet.transform.position = BulletSpawnPoint.transform.position;
 				BulletRB[CurrentBulletIndex].velocity = transform.forward * BulletSpeed;
 				CurrentBullet.transform.up = transform.forward;
+                AimLine.SetPosition(0, new Vector3(LineOBJPos.transform.position.x, LineOBJPos.transform.position.y + 0.040f, LineOBJPos.transform.position.z));
+                AimLine.SetPosition(1, LineOBJPos.transform.forward * 100.0f);
 
 			}
 		}
@@ -72,8 +82,6 @@ public class GunBehaviour : MonoBehaviour
 
 			}
 		}
-        AimLine.SetPosition(0, new Vector3(LineOBJPos.transform.position.x, LineOBJPos.transform.position.y + 0.040f, LineOBJPos.transform.position.z));
-        AimLine.SetPosition(1, LineOBJPos.transform.forward * 100.0f);
     }
 
 	public GameObject GetBullet()
