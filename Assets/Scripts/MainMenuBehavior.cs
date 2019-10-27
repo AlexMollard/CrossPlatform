@@ -21,7 +21,7 @@ public class MainMenuBehavior : MonoBehaviour
 
 	void PlayButtonPressed()
 	{
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
 	}
 
 	void ExitButtonPressed()
